@@ -1,28 +1,49 @@
-$sql = "SELECT * FROM Alumno";
-$result = $conn->query($sql);
 
-// Mostrar datos
-echo "<h2>Lista de Alumnos</h2>";
-echo "<table border='1'>
-<tr><th>ID</th><th>Nombres</th><th>Apellidos</th><th>Edad</th><th>Teléfono</th><th>Correo</th></tr>";
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>INFORMATIVO 2025</title>
+  </head>
 
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr>
-        <td>".$row["id"]."</td>
-        <td>".$row["nombres"]."</td>
-        <td>".$row["apellidos"]."</td>
-        <td>".$row["edad"]."</td>
-        <td>".$row["telefono"]."</td>
-        <td>".$row["correo"]."</td>
-        </tr>";
-    }
-} else {
-    echo "<tr><td colspan='6'>No hay datos</td></tr>";
-}
+  <body>
+      </header>
+      <?php
+        include("secciones/alumno.php");
+      ?>
+      <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+        <div class="col-md-12 px-0">
+          <h1 class="display-4 font-italic">
+            <?php
+              echo $alumno["Nombres"];
+            ?>
+          </h1>
+          <p class="lead my-3">
+            <?php
+              echo $alumno["Apellidos"];
+            ?>
+          </p>
 
-echo "</table>";
+             <p class="lead my-3">
+            <?php
+              echo $alumno["Edad"];
+            ?>
+          </p>
 
-// Cerrar conexión
-$conn->close();
-?>
+             <p class="lead my-3">
+            <?php
+              echo $alumno["Telefono"];
+            ?>
+          </p>
+
+             <p class="lead my-3">
+            <?php
+              echo $alumno["Correo"];
+            ?>
+          </p>
+            
+        </div>
+      </div>
+
+  </body>
+</html>
+
